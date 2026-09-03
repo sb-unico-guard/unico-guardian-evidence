@@ -1,0 +1,121 @@
+{
+  "contract_provenance": {
+    "derived_exclusively_from_source_commit": true,
+    "scope": [
+      "review-v3 schema",
+      "evaluator rules",
+      "runtime configuration contract",
+      "Evidence Reader contract",
+      "policy contract"
+    ],
+    "source_commit": "20f3a8dce1e64b75207a3d2a35063777fd9091d0",
+    "source_repository": "sb-unico-guard/unico-independent-release-guardian"
+  },
+  "deployment_binding_provenance": {
+    "canonical_evidence_issue": {
+      "authoritative_source": "GitHub API issue readback",
+      "id": 5326502681,
+      "number": 1,
+      "repository": "sb-unico-guard/unico-guardian-evidence",
+      "verification_method": "authenticated lookup of issue #1 in the independently selected repository",
+      "verified_at": "2026-09-03T07:29:32Z"
+    },
+    "evidence_repository": {
+      "authoritative_source": "GitHub API repository metadata readback",
+      "full_name": "sb-unico-guard/unico-guardian-evidence",
+      "id": 1354977594,
+      "verification_method": "authenticated repository lookup by exact full name",
+      "verified_at": "2026-09-03T07:29:32Z"
+    },
+    "note": "These concrete numeric IDs are deployment-specific metadata, not concrete values derived from the Guardian source commit."
+  },
+  "generated_at": "2026-09-03T07:29:32Z",
+  "guardian_version": "0.3.3",
+  "integrity_root_model": {
+    "authenticity_anchor": "exact immutable Git commit/tree containing this snapshot, or an equivalent external trusted signature",
+    "copied_directory_limit": "Without the trusted Git commit/tree or equivalent external signature, a copied directory can verify internal checksum consistency but cannot establish origin.",
+    "integrity_root_file": "manifest.sha256",
+    "integrity_root_self_hash": false,
+    "model": "non-circular conventional checksum root",
+    "root_contents": "SHA-256 for every other published snapshot file, including manifest.json"
+  },
+  "policy_identifier": "unico.guardian.policy.v0.3",
+  "review_schema_identifier": "unico.guardian.review.v3",
+  "snapshot_files": [
+    {
+      "original_source_paths": [
+        "schemas/review-v3.schema.json",
+        "src/unico_guardian/evaluator.py",
+        "src/unico_guardian/runtime/config.py",
+        "src/unico_guardian/runtime/evidence.py"
+      ],
+      "path": "README.md",
+      "publication_kind": "snapshot-documentation",
+      "role": "metadata",
+      "sha256": "430d13929c65f2051f98b871e9070e02fb56edf03cfe4304eb811bd56ff19bca"
+    },
+    {
+      "original_source_paths": [
+        "schemas/review-v3.schema.json",
+        "src/unico_guardian/evaluator.py",
+        "src/unico_guardian/runtime/config.py",
+        "src/unico_guardian/runtime/evidence.py",
+        "GUARDIAN_POLICY.md"
+      ],
+      "path": "evaluator-contract.md",
+      "publication_kind": "deterministic-contract-extraction",
+      "role": "contract-payload",
+      "sha256": "228b9d6a961bf4a03ec9372e8a1fc106163214ebf65316449547a1cb58f4af2e"
+    },
+    {
+      "hash_location": "manifest.sha256",
+      "original_source_paths": [
+        "schemas/review-v3.schema.json",
+        "src/unico_guardian/evaluator.py",
+        "src/unico_guardian/runtime/config.py",
+        "src/unico_guardian/runtime/evidence.py",
+        "GUARDIAN_POLICY.md"
+      ],
+      "path": "manifest.json",
+      "publication_kind": "generated-integrity-and-provenance-metadata",
+      "role": "manifest-metadata"
+    },
+    {
+      "authenticated_by": "exact immutable Git commit/tree or equivalent external trusted signature; not by self-hashing",
+      "hashes_every_other_snapshot_file": true,
+      "original_source_paths": [],
+      "path": "manifest.sha256",
+      "publication_kind": "generated-checksum-root",
+      "role": "integrity-root",
+      "self_hashed": false
+    },
+    {
+      "original_source_paths": [
+        "schemas/review-v3.schema.json",
+        "src/unico_guardian/evaluator.py",
+        "src/unico_guardian/runtime/config.py",
+        "src/unico_guardian/runtime/evidence.py",
+        "GUARDIAN_POLICY.md"
+      ],
+      "path": "owner-approval-contract.json",
+      "publication_kind": "deterministic-contract-extraction-with-separately-sourced-deployment-metadata",
+      "role": "contract-payload",
+      "sha256": "a4182324b834e0bb60f80e0c9143e024e45408f7389c21531a61c98f227e0a66"
+    },
+    {
+      "original_source_paths": ["schemas/review-v3.schema.json"],
+      "path": "review-v3.schema.json",
+      "publication_kind": "exact-copy",
+      "role": "contract-payload",
+      "sha256": "cbe0e8867e3467b9aeb83c3c7470ac782d07c21db2637c81e7f0441f786f9a80",
+      "source_git_blob": "38f9eb16a274f7dccaa4dd035d2073d41152f8b7"
+    }
+  ],
+  "source_git_blobs": {
+    "GUARDIAN_POLICY.md": "2b188d8d9742207a68f9733a47bc964988e06f47",
+    "schemas/review-v3.schema.json": "38f9eb16a274f7dccaa4dd035d2073d41152f8b7",
+    "src/unico_guardian/evaluator.py": "47aea00f5b718cf589756fb7456b5e6b5d7b11ac",
+    "src/unico_guardian/runtime/config.py": "c9671e5572aad0fe3c86589de94bbb1bdd0730ce",
+    "src/unico_guardian/runtime/evidence.py": "4a48dedc62b555734b72b070f2841e1dc90224fe"
+  }
+}
