@@ -1,0 +1,133 @@
+{
+  "guardian_version": "0.3.4",
+  "policy_identifier": "unico.guardian.policy.v0.3",
+  "review_schema_identifier": "unico.guardian.review.v3",
+  "generated_at": "2026-09-03T15:39:18Z",
+  "contract_provenance": {
+    "source_repository": "sb-unico-guard/unico-independent-release-guardian",
+    "source_commit": "df0cb61f0e9c691203d09a7861b6055e586e930c",
+    "derived_exclusively_from_source_commit": true,
+    "scope": [
+      "review-v3 schema",
+      "evaluator rules",
+      "runtime configuration contract",
+      "Evidence Reader contract",
+      "live collector contract",
+      "runtime service/final PASS guard",
+      "policy contract",
+      "canonical numeric identity rules"
+    ]
+  },
+  "deployment_binding_provenance": {
+    "evidence_repository": {
+      "full_name": "sb-unico-guard/unico-guardian-evidence",
+      "id": 1354977594,
+      "authoritative_source": "authenticated GitHub API repository readback",
+      "verification_method": "exact full-name repository metadata lookup",
+      "verified_at": "2026-09-03T15:39:18Z"
+    },
+    "canonical_evidence_issue": {
+      "repository": "sb-unico-guard/unico-guardian-evidence",
+      "number": 1,
+      "id": 5326502681,
+      "authoritative_source": "authenticated GitHub API issue readback",
+      "verification_method": "exact issue #1 lookup in independently selected evidence repository",
+      "verified_at": "2026-09-03T15:39:18Z"
+    },
+    "note": "Concrete deployment IDs are authenticated deployment readback metadata and are not claimed to be values derived from Guardian source."
+  },
+  "integrity_root_model": {
+    "model": "non-circular conventional checksum root",
+    "integrity_root_file": "manifest.sha256",
+    "root_contents": "SHA-256 for every other snapshot artifact, including manifest.json",
+    "integrity_root_self_hash": false,
+    "authenticity_anchor": "immutable Git commit/tree containing this snapshot, or equivalent trusted external signature",
+    "copied_directory_limit": "A detached copy can verify internal checksum consistency but cannot establish origin without the trusted external anchor."
+  },
+  "snapshot_files": [
+    {
+      "path": "README.md",
+      "role": "metadata",
+      "publication_kind": "snapshot-documentation",
+      "sha256": "56ba2ec38b31285f8021d44175ef9b7704a870d4d68f87ea627e345126bdb19b",
+      "original_source_paths": [
+        "pyproject.toml",
+        "schemas/review-v3.schema.json",
+        "src/unico_guardian/evaluator.py",
+        "src/unico_guardian/runtime/collector.py",
+        "src/unico_guardian/runtime/evidence.py",
+        "src/unico_guardian/runtime/service.py"
+      ]
+    },
+    {
+      "path": "evaluator-contract.md",
+      "role": "contract-payload",
+      "publication_kind": "deterministic-non-executable-contract-extraction",
+      "sha256": "72454d7003990ddc9387b343ae193662e455579ba43f7ff106e7833c68ecd996",
+      "original_source_paths": [
+        "GUARDIAN_POLICY.md",
+        "schemas/review-v3.schema.json",
+        "src/unico_guardian/evaluator.py",
+        "src/unico_guardian/identity.py",
+        "src/unico_guardian/runtime/collector.py",
+        "src/unico_guardian/runtime/config.py",
+        "src/unico_guardian/runtime/evidence.py",
+        "src/unico_guardian/runtime/service.py"
+      ]
+    },
+    {
+      "path": "owner-approval-contract.json",
+      "role": "contract-payload",
+      "publication_kind": "machine-readable-contract-extraction-with-separately-sourced-deployment-metadata",
+      "sha256": "6547e9152ea3c2ac100bf51c368f4ae608030e688d7ffb67ce8db6193dd709b1",
+      "original_source_paths": [
+        "GUARDIAN_POLICY.md",
+        "schemas/review-v3.schema.json",
+        "src/unico_guardian/evaluator.py",
+        "src/unico_guardian/identity.py",
+        "src/unico_guardian/runtime/collector.py",
+        "src/unico_guardian/runtime/config.py",
+        "src/unico_guardian/runtime/evidence.py",
+        "src/unico_guardian/runtime/service.py"
+      ]
+    },
+    {
+      "path": "review-v3.schema.json",
+      "role": "contract-payload",
+      "publication_kind": "byte-exact-copy",
+      "sha256": "cbe0e8867e3467b9aeb83c3c7470ac782d07c21db2637c81e7f0441f786f9a80",
+      "original_source_paths": [
+        "schemas/review-v3.schema.json"
+      ],
+      "source_git_blob": "38f9eb16a274f7dccaa4dd035d2073d41152f8b7"
+    },
+    {
+      "path": "manifest.json",
+      "role": "manifest-metadata",
+      "publication_kind": "generated-integrity-and-provenance-metadata",
+      "hash_location": "manifest.sha256",
+      "original_source_paths": []
+    },
+    {
+      "path": "manifest.sha256",
+      "role": "integrity-root",
+      "publication_kind": "generated-checksum-root",
+      "hashes_every_other_snapshot_file": true,
+      "self_hashed": false,
+      "authenticated_by": "immutable Git commit/tree or equivalent trusted external signature; not by self-hashing",
+      "original_source_paths": []
+    }
+  ],
+  "source_git_blobs": {
+    "GUARDIAN_POLICY.md": "c178887c29e8d09da88ddccd84d87c39d8a5b7ff",
+    "pyproject.toml": "028b8672bc5272303adee691fb852608bb0d8b47",
+    "schemas/review-v3.schema.json": "38f9eb16a274f7dccaa4dd035d2073d41152f8b7",
+    "src/unico_guardian/__init__.py": "69ae3a760d98539e1f45c85247e403cf48fdc7db",
+    "src/unico_guardian/evaluator.py": "811919bfaa4914a42cd71a2bce2a832b39a25406",
+    "src/unico_guardian/identity.py": "1f121ee39814bffc7dca6b37bf7675fe47c6cf21",
+    "src/unico_guardian/runtime/collector.py": "39dead14ba4a6b615998bbd52d4a5294ae19f6cd",
+    "src/unico_guardian/runtime/config.py": "b145e034986043f1a188bf539aca28145dbeb109",
+    "src/unico_guardian/runtime/evidence.py": "b35d11ec3b85b6409e7b4b8666f10708accf2a41",
+    "src/unico_guardian/runtime/service.py": "c44d1d5f0dc1bff375fb8702ff4d07a9edfd71c0"
+  }
+}
