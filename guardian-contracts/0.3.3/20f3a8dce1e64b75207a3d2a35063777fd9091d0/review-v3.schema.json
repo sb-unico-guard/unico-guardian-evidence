@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://guardian.unico.invalid/schemas/review-v3.schema.json",
+  "title": "UniCo Guardian Review v3",
+  "description": "Immutable reviewer-authored evidence for an explicit protected approval mode. The GitHub comment ID is supplied only by protected Guardian configuration.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "authorization_id", "target_repository", "pull_request_number",
+    "head_sha", "base_ref", "base_sha", "merge_sha", "reviewer_subject",
+    "reviewer_role", "verdict", "issued_at", "expires_at", "review_profile",
+    "evidence_reference", "nonce"
+  ],
+  "properties": {
+    "schema_version": {"const": "unico.guardian.review.v3"},
+    "authorization_id": {"type": "string", "format": "uuid"},
+    "target_repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "full_name"],
+      "properties": {
+        "id": {"type": "integer", "minimum": 1},
+        "full_name": {"const": "alluretg-sketch/UniCo-Platform"}
+      }
+    },
+    "pull_request_number": {"type": "integer", "minimum": 1},
+    "head_sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "base_ref": {"const": "main"},
+    "base_sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "merge_sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "reviewer_subject": {"type": "string", "pattern": "^github:[A-Za-z0-9-]+$"},
+    "reviewer_role": {"enum": ["OWNER_REVIEWER", "INDEPENDENT_REVIEWER"]},
+    "verdict": {"enum": ["APPROVE", "REJECT"]},
+    "issued_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": "string", "format": "date-time"},
+    "review_profile": {"const": "guardian-v0.1"},
+    "evidence_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "repository"],
+      "properties": {
+        "kind": {"const": "github_issue_comment"},
+        "repository": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?/[A-Za-z0-9._-]{1,100}$"
+        }
+      }
+    },
+    "nonce": {"type": "string", "format": "uuid"}
+  }
+}
