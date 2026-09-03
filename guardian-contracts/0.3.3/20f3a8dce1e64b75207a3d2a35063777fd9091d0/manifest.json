@@ -1,0 +1,80 @@
+{
+  "derived_exclusively_from_source_commit": true,
+  "generated_at": "2026-09-03T05:53:20Z",
+  "guardian_version": "0.3.3",
+  "policy_identifier": "unico.guardian.policy.v0.3",
+  "review_schema_identifier": "unico.guardian.review.v3",
+  "snapshot_files": [
+    {
+      "original_source_paths": ["schemas/review-v3.schema.json"],
+      "path": "review-v3.schema.json",
+      "publication_kind": "exact-copy",
+      "sha256": "cbe0e8867e3467b9aeb83c3c7470ac782d07c21db2637c81e7f0441f786f9a80",
+      "source_git_blobs": {
+        "schemas/review-v3.schema.json": "38f9eb16a274f7dccaa4dd035d2073d41152f8b7"
+      }
+    },
+    {
+      "original_source_paths": [
+        "schemas/review-v3.schema.json",
+        "src/unico_guardian/evaluator.py",
+        "src/unico_guardian/runtime/config.py",
+        "src/unico_guardian/runtime/evidence.py"
+      ],
+      "path": "owner-approval-contract.json",
+      "publication_kind": "deterministic-contract-extraction",
+      "sha256": "d25c73567f6fd1ffb7115f00c1c7043a6a1a0161901d8977fcb9cfd51fe3c394",
+      "source_git_blobs": {
+        "schemas/review-v3.schema.json": "38f9eb16a274f7dccaa4dd035d2073d41152f8b7",
+        "src/unico_guardian/evaluator.py": "47aea00f5b718cf589756fb7456b5e6b5d7b11ac",
+        "src/unico_guardian/runtime/config.py": "c9671e5572aad0fe3c86589de94bbb1bdd0730ce",
+        "src/unico_guardian/runtime/evidence.py": "4a48dedc62b555734b72b070f2841e1dc90224fe"
+      }
+    },
+    {
+      "original_source_paths": [
+        "schemas/review-v3.schema.json",
+        "src/unico_guardian/evaluator.py",
+        "src/unico_guardian/runtime/config.py",
+        "src/unico_guardian/runtime/evidence.py",
+        "docs/ARCHITECTURE.md"
+      ],
+      "path": "evaluator-contract.md",
+      "publication_kind": "deterministic-contract-extraction",
+      "sha256": "721e4cd7b1102249af1ee62ef71ca282587878e2178472e63feb9fa7696c2e51",
+      "source_git_blobs": {
+        "docs/ARCHITECTURE.md": "fb02f46e7c07b69f50a3e70bf89782bb262caf80",
+        "schemas/review-v3.schema.json": "38f9eb16a274f7dccaa4dd035d2073d41152f8b7",
+        "src/unico_guardian/evaluator.py": "47aea00f5b718cf589756fb7456b5e6b5d7b11ac",
+        "src/unico_guardian/runtime/config.py": "c9671e5572aad0fe3c86589de94bbb1bdd0730ce",
+        "src/unico_guardian/runtime/evidence.py": "4a48dedc62b555734b72b070f2841e1dc90224fe"
+      }
+    },
+    {
+      "original_source_paths": [
+        "schemas/review-v3.schema.json",
+        "src/unico_guardian/evaluator.py",
+        "src/unico_guardian/runtime/config.py",
+        "src/unico_guardian/runtime/evidence.py"
+      ],
+      "path": "README.md",
+      "publication_kind": "snapshot-documentation",
+      "sha256": "cde8edc435e100500ac5201f03a4be344c8f98fd45d2825a93bc6471f326870b",
+      "source_git_blobs": {
+        "schemas/review-v3.schema.json": "38f9eb16a274f7dccaa4dd035d2073d41152f8b7",
+        "src/unico_guardian/evaluator.py": "47aea00f5b718cf589756fb7456b5e6b5d7b11ac",
+        "src/unico_guardian/runtime/config.py": "c9671e5572aad0fe3c86589de94bbb1bdd0730ce",
+        "src/unico_guardian/runtime/evidence.py": "4a48dedc62b555734b72b070f2841e1dc90224fe"
+      }
+    }
+  ],
+  "source_commit": "20f3a8dce1e64b75207a3d2a35063777fd9091d0",
+  "source_repository": "sb-unico-guard/unico-independent-release-guardian",
+  "source_release_blob_bindings": {
+    "evaluator": "47aea00f5b718cf589756fb7456b5e6b5d7b11ac",
+    "evidence_reader": "4a48dedc62b555734b72b070f2841e1dc90224fe",
+    "policy_document": "2b188d8d9742207a68f9733a47bc964988e06f47",
+    "review_schema": "38f9eb16a274f7dccaa4dd035d2073d41152f8b7",
+    "runtime_config": "c9671e5572aad0fe3c86589de94bbb1bdd0730ce"
+  }
+}
