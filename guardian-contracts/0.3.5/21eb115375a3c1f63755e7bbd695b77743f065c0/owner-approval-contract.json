@@ -70,6 +70,9 @@
         "nonce"
       ],
       "uuid_contract": "JSON string in standard hyphenated UUID text form",
+      "uuid_hex_case": "accepted case-insensitively",
+      "post_validation_normalization": "none; original JSON strings are retained",
+      "authorization_replay_key": "exact original authorization_id string",
       "schema_invalid_uuid_examples_rejected": [
         "integer",
         "float",
