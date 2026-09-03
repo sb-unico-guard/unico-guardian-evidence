@@ -67,7 +67,7 @@
       "path": "evaluator-contract.md",
       "role": "contract-payload",
       "publication_kind": "deterministic-non-executable-contract-extraction",
-      "sha256": "a1e22a0373caf60f32fa5454dad7ba38490e22379b2796a3beb5a489dad3e869",
+      "sha256": "a33240435d41e690191c0a9efe0fb41b5d79dbc9bc42f533556cc00652262804",
       "original_source_paths": [
         "GUARDIAN_POLICY.md",
         "schemas/review-v3.schema.json",
@@ -85,7 +85,7 @@
       "path": "owner-approval-contract.json",
       "role": "contract-payload",
       "publication_kind": "machine-readable-contract-extraction-with-separately-sourced-deployment-metadata",
-      "sha256": "ea32557d96f8a6a6904f7f5176b5dfefc0edb4e3c3a52326b2bde7bf5dfa4a8a",
+      "sha256": "0818a7099c50c29fcc02cb30e3c38e23131f17a883ea0d22a3c5a774af2f5bac",
       "original_source_paths": [
         "GUARDIAN_POLICY.md",
         "schemas/review-v3.schema.json",
