@@ -1,0 +1,270 @@
+{
+  "guardian_version": "0.3.5",
+  "policy": {
+    "policy_version": "unico.guardian.policy.v0.3",
+    "review_schema": "unico.guardian.review.v3",
+    "review_profile": "guardian-v0.1",
+    "base_ref": "main",
+    "target_repository": {
+      "id": 1341874676,
+      "full_name": "alluretg-sketch/UniCo-Platform"
+    },
+    "required_checks": [
+      {
+        "name": "verify",
+        "app_id": 15368
+      },
+      {
+        "name": "scanner-contracts",
+        "app_id": 15368
+      },
+      {
+        "name": "scanner-supabase-security",
+        "app_id": 15368
+      }
+    ],
+    "guardian_check": {
+      "name": "unico-independent-release-guardian/v0.1",
+      "app_id": 4772439
+    },
+    "max_clock_skew_seconds": 300,
+    "max_review_lifetime_seconds": 691200,
+    "minimum_remaining_validity_seconds": 605700,
+    "max_ci_age_seconds": 86400
+  },
+  "approval_modes": {
+    "OWNER_APPROVAL": {
+      "required_reviewer_role": "OWNER_REVIEWER",
+      "builder_overlap": "permitted only in this mode",
+      "reviewer_must_be_protected_allowlist_entry": true
+    },
+    "INDEPENDENT_APPROVAL": {
+      "required_reviewer_role": "INDEPENDENT_REVIEWER",
+      "builder_overlap": "rejected",
+      "genuinely_separate_principal_required": true
+    }
+  },
+  "reviewer_registry_contract": {
+    "key_pattern": "^github:[A-Za-z0-9-]+$",
+    "entry_exact_fields": [
+      "role",
+      "provenance",
+      "user_id"
+    ],
+    "provenance": "github-native",
+    "user_id": "canonical positive integer",
+    "owner_identity_is_not_hard_coded": true
+  },
+  "review_contract": {
+    "schema_version": "unico.guardian.review.v3",
+    "exact_field_count": 16,
+    "additional_fields_rejected": true,
+    "evidence_comment_or_issue_id_in_review_json": false,
+    "runtime_validation": {
+      "boundary": "complete review-v3 validation immediately after strict JSON parsing",
+      "defense_in_depth": "the same validator runs at direct evaluator entry",
+      "exact_json_types_required": true,
+      "implicit_coercion_permitted": false,
+      "uuid_fields": [
+        "authorization_id",
+        "nonce"
+      ],
+      "uuid_contract": "JSON string in standard hyphenated UUID text form",
+      "schema_invalid_uuid_examples_rejected": [
+        "integer",
+        "float",
+        "boolean",
+        "null",
+        "array",
+        "object",
+        "malformed string",
+        "non-hyphenated string"
+      ]
+    },
+    "canonical_json": {
+      "sort_keys": true,
+      "separators": [
+        ",",
+        ":"
+      ],
+      "ensure_ascii": true,
+      "digest": "sha256(utf8(canonical_json))"
+    },
+    "exact_release_bindings": [
+      "target_repository",
+      "pull_request_number",
+      "head_sha",
+      "base_ref",
+      "base_sha",
+      "merge_sha"
+    ],
+    "authorization_binding_fields": [
+      "policy_version",
+      "approval_mode",
+      "target_repository",
+      "pull_request_number",
+      "head_sha",
+      "base_sha",
+      "merge_sha",
+      "authorization_id",
+      "nonce",
+      "review_digest",
+      "evidence_repository_id",
+      "evidence_repository_full_name",
+      "evidence_issue_id",
+      "evidence_issue_number",
+      "evidence_record_id",
+      "reviewer_user_id"
+    ]
+  },
+  "ci_collection": {
+    "target": "exact PR HEAD",
+    "suite_endpoint": "commits/{exact_head}/check-suites",
+    "runs_endpoint": "check-suites/{suite_id}/check-runs?filter=all",
+    "pagination": {
+      "page_size": 100,
+      "max_check_suites": 999,
+      "max_pages_for_suites": 10,
+      "max_runs_per_suite": 999,
+      "max_pages_per_suite": 10,
+      "max_total_runs": 999
+    },
+    "complete_collection_required": true,
+    "duplicate_suite_id": "fail closed",
+    "duplicate_global_check_run_id": "fail closed",
+    "stable_snapshot_protocol": [
+      "complete membership snapshot A",
+      "exact-ID reread of every authorization-relevant CheckRun",
+      "complete membership snapshot B",
+      "require identical A/B membership and unchanged normalized relevant records"
+    ],
+    "authorization_relevant_run_fields": [
+      "id",
+      "name",
+      "app_id",
+      "suite_id",
+      "head_sha",
+      "status",
+      "conclusion",
+      "started_at",
+      "completed_at"
+    ],
+    "incomplete_unstable_or_unprovable": "no PASS"
+  },
+  "current_required_check_selection": {
+    "candidate_filter": [
+      "exact required name",
+      "exact expected App ID",
+      "exact PR HEAD"
+    ],
+    "deterministic_order": [
+      "started_at",
+      "CheckRun ID"
+    ],
+    "selected": "greatest deterministic tuple",
+    "created_at_used": false,
+    "completed_at_role": "freshness and completed-success validation only; never current-run ordering",
+    "malformed_or_unresolved_ordering": "fail closed"
+  },
+  "canonical_numeric_identity": {
+    "exact_type_rule": "type(value) is int; booleans and all non-integer JSON types are rejected",
+    "positive_domain": "GitHub identifiers and protected identity values must be greater than zero",
+    "nonnegative_domain": "provider collection counts may be zero but must otherwise be canonical integers",
+    "rejected_examples": [
+      "integral float",
+      "non-integral float",
+      "true",
+      "false",
+      "numeric string",
+      "null",
+      "object",
+      "array",
+      "zero for positive IDs",
+      "negative integer"
+    ]
+  },
+  "evidence": {
+    "repository": {
+      "full_name": "sb-unico-guard/unico-guardian-evidence",
+      "id": 1354977594,
+      "provenance_class": "deployment-specific",
+      "authoritative_source": "authenticated GitHub API repository readback",
+      "verified_at": "2026-09-03T16:20:55Z"
+    },
+    "issue": {
+      "number": 1,
+      "id": 5326502681,
+      "provenance_class": "deployment-specific",
+      "authoritative_source": "authenticated GitHub API issue readback",
+      "verified_at": "2026-09-03T16:20:55Z"
+    },
+    "comment": {
+      "id_source": "protected review_records[decimal PR number]",
+      "returned_id_must_equal_protected_id": true,
+      "created_at_must_equal_updated_at": true,
+      "body_must_be_exact_json_object": true,
+      "author_login_and_numeric_user_id_must_match_protected_reviewer": true
+    },
+    "trust_boundary": {
+      "complete_schema_validation": true,
+      "validation_position": "immediately after strict JSON parsing and before protected identity comparison or trusted evidence acceptance",
+      "rejection_before": [
+        "review digest construction",
+        "evaluator authorization",
+        "replay-ledger access",
+        "authorization/audit binding",
+        "Guardian success or failure CheckRun publication"
+      ],
+      "malformed_result": "published=false; no publisher call; no replay/audit write",
+      "canonical_evidence_policy_failure": "normal Guardian FAIL publication remains permitted"
+    }
+  },
+  "evaluation": {
+    "fail_closed": true,
+    "approval_requires": [
+      "PR is open, non-draft, unmerged, mergeable, and HEAD contains current base",
+      "review repository/PR/head/base/main/merge values exactly equal protected and live observations",
+      "reviewer is explicitly present in protected reviewer_registry with exact role/provenance/user_id",
+      "verdict is APPROVE",
+      "evidence repository/issue/comment/author identities match protected values",
+      "comment is immutable and canonical content digest matches",
+      "timestamps, lifetime, remaining validity, required CI success and freshness pass",
+      "authorization_id has no conflicting replay-ledger binding"
+    ],
+    "final_pass_guard": {
+      "before_pass_side_effects": true,
+      "selected_checks": "reread each selected required CheckRun by exact ID and require unchanged suite/App/HEAD and normalized fields",
+      "release_state": "reread repository, PR, current base, merge, lifecycle, mergeability, and HEAD/base containment; require exact evaluated-state equality",
+      "drift_or_unavailable": "no PASS-side authorization binding or PASS publication"
+    },
+    "point_in_time_attestation": "PASS attests only the exact state authoritatively observed and revalidated at evaluation time; it does not claim future provider immutability",
+    "rejection_rules": {
+      "guardian_check.source_collision": {
+        "protected_check_name": "unico-independent-release-guardian/v0.1",
+        "protected_app_id": 4772439,
+        "condition": "same protected check name observed from a different App ID",
+        "outcome": "BLOCKED"
+      }
+    }
+  },
+  "source_commit": "21eb115375a3c1f63755e7bbd695b77743f065c0",
+  "source_derived_contract": {
+    "derived_exclusively_from_source_commit": true,
+    "includes": [
+      "review-v3 schema",
+      "review-v3 runtime validation contract",
+      "evaluator rules",
+      "runtime configuration contract",
+      "Evidence Reader contract",
+      "live collector contract",
+      "runtime service/final PASS guard",
+      "policy contract",
+      "canonical identity rules"
+    ],
+    "excludes": [
+      "concrete evidence repository numeric ID",
+      "concrete canonical issue database ID"
+    ],
+    "note": "Excluded concrete IDs are deployment-specific authenticated GitHub API readback metadata."
+  }
+}
