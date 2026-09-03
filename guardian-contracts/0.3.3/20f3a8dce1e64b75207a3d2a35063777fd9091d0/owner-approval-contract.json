@@ -38,12 +38,20 @@
       "returned_id_must_equal_protected_id": true
     },
     "issue": {
+      "authoritative_source": "GitHub API readback: sb-unico-guard/unico-guardian-evidence issue #1",
       "id": 5326502681,
-      "number": 1
+      "number": 1,
+      "provenance_class": "deployment-specific",
+      "verification_method": "authenticated GitHub API issue readback; repository and issue number selected independently",
+      "verified_at": "2026-09-03T07:29:32Z"
     },
     "repository": {
+      "authoritative_source": "GitHub API repository readback",
       "full_name": "sb-unico-guard/unico-guardian-evidence",
-      "id": 1354977594
+      "id": 1354977594,
+      "provenance_class": "deployment-specific",
+      "verification_method": "authenticated GitHub API repository metadata readback by full name",
+      "verified_at": "2026-09-03T07:29:32Z"
     }
   },
   "evaluation": {
@@ -63,6 +71,14 @@
     ],
     "builder_overlap": "permitted only for OWNER_APPROVAL",
     "fail_closed": true,
+    "rejection_rules": {
+      "guardian_check.source_collision": {
+        "condition": "an observed Guardian check has the protected name unico-independent-release-guardian/v0.1 and an app_id different from 4772439",
+        "outcome": "BLOCKED",
+        "protected_app_id": 4772439,
+        "protected_check_name": "unico-independent-release-guardian/v0.1"
+      }
+    },
     "unknown_or_missing_approval_mode": "BLOCKED"
   },
   "guardian_version": "0.3.3",
@@ -99,5 +115,16 @@
     "owner_identity_is_not_hard_coded": true
   },
   "schema_version": "unico.guardian.review.v3",
-  "source_commit": "20f3a8dce1e64b75207a3d2a35063777fd9091d0"
+  "source_commit": "20f3a8dce1e64b75207a3d2a35063777fd9091d0",
+  "source_derived_contract": {
+    "derived_exclusively_from_source_commit": true,
+    "includes": [
+      "review-v3 schema",
+      "evaluator rules",
+      "runtime configuration contract",
+      "Evidence Reader contract",
+      "policy contract"
+    ],
+    "note": "Concrete evidence repository and canonical issue numeric IDs are excluded from this source-derived classification and are deployment-specific GitHub API metadata."
+  }
 }
